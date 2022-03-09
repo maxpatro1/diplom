@@ -1,0 +1,16 @@
+[
+  {
+    "model": "diplom.Permission",
+    "pk": 1,
+    "fields": {
+      "name": "Смотреть курсы"
+    }
+  },
+  {
+    "model": "diplom.Permission",
+    "pk": 2,
+    "fields": {
+      "name": "Проверять студентов"
+    }
+  }
+]
