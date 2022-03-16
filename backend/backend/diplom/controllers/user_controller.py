@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, permissions
 
 from ..serializers import *
 
@@ -17,13 +17,16 @@ class UserListView(generics.ListAPIView):
 class UserCreateView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_class = permissions.IsAuthenticatedOrReadOnly
 
 
 class UserRetrieveView(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_class = permissions.IsAuthenticatedOrReadOnly
 
 
 class UserUpdateView(generics.UpdateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_class = permissions.IsAuthenticatedOrReadOnly
