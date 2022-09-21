@@ -30,3 +30,11 @@ class UserUpdateView(generics.UpdateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_class = permissions.IsAuthenticatedOrReadOnly
+
+
+class UserGetView(generics.ListAPIView):
+    serializer_class = UserSerializer
+
+    def get_queryset(self):
+        username = self.request.GET.get('username')
+        return User.objects.filter(username=username)

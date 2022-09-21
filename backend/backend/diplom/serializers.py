@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['username', 'email', 'first_name', 'last_name']
+        fields = ['id', 'username', 'email', 'first_name', 'last_name']
 
 
 class PermissionSerializer(serializers.ModelSerializer):
@@ -52,3 +52,19 @@ class LabSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class UserHasCourseSerializer(serializers.ModelSerializer):
+    course = CourseSerializer()
+    user = UserSerializer()
+
+    class Meta:
+        model = User_Has_Courses
+        fields = '__all__'
+
+
+class UserHasLabSerializer(serializers.ModelSerializer):
+    lab = LabSerializer()
+    user = UserSerializer()
+
+    class Meta:
+        model = User_Has_Labs
+        fields = '__all__'

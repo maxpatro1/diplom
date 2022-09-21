@@ -27,6 +27,7 @@ class Dict_Group(models.Model):
 
 class Course(models.Model):
     name = models.CharField(max_length=200)
+    full_name = models.CharField(max_length=1000, null=True)
     description = models.CharField(max_length=1000)
     deadline = models.DateTimeField(null=True)
 
@@ -47,6 +48,7 @@ class Lab(models.Model):
 class User_Has_Labs(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     lab = models.ForeignKey(Lab, on_delete=models.CASCADE)
+    lab_file_name = models.CharField(max_length=1000, null=True)
     is_compile = models.BooleanField(default=False)
 
 
